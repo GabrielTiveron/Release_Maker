@@ -11,20 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: cornao brabo
-      id: samb
-      run: echo "::set-output name=Luis_cornao::arquivo_hehe_cornao"
-    - name: samuca
-      id: corno
-      run: curl "${{secrets.SONAR_URL}}" > ${{steps.samb.outputs.Luis_cornao}}.json
+    - name: Set file
+      id: filesetting
+      run: echo "::set-output name=metrics_report::metrics_report"
+    - name: Get metrics
+      id: metrics
+      run: curl "${{secrets.SONAR_URL}}" > ${{steps.filesetting.outputs.metrics_report}}.json
     - name: Get release version
       id: new_tag
       uses: mathieudutour/github-tag-action@v5.6
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: ai pai para
+    - name: Set artifact
       uses: ncipollo/release-action@v1.8.9
       with:
         tag: ${{steps.new_tag.outputs.new_tag}}
-        artifacts: ${{steps.samb.outputs.Luis_cornao}}.json
+        artifacts: ${{steps.filesetting.outputs.metrics_report}}.json
+        body: ${{steps.new_tag.outputs.changelog}}
         token: ${{ secrets.GITHUB_TOKEN }}
