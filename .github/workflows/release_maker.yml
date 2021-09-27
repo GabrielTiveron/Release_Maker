@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  - build:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
         artifacts: ${{steps.filesetting.outputs.metrics_report}}.json
         body: ${{steps.new_tag.outputs.changelog}}
         token: ${{ secrets.GITHUB_TOKEN }}
-  - receiver:
+  receiver:
     runs-on: ubuntu-latest
     env:
       REPO_NAME: Frontend
