@@ -5,6 +5,8 @@ on:
 jobs:
   receiver:
     runs-on: ubuntu-latest
+    env:
+      REPO_NAME: GabrielTiveron/Release_Maker
     steps:
       - uses: guilouro/multiple-repositories-dispatch@v1.0.0
         with:
@@ -12,4 +14,4 @@ jobs:
           event_type: event_name
           repositories: |
             GabrielTiveron/Release_Receiver
-          client_payload: '{"github": ${{ toJson(github) }}}'
+          client_payload: '{"repo_name": ${{ REPO_NAME }}}'
