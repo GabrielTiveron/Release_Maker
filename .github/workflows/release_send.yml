@@ -14,4 +14,4 @@ jobs:
           event_type: event_name
           repositories: |
             GabrielTiveron/Release_Receiver
-          client_payload: '{"repo_name": ${{ REPO_NAME }}}'
+          client_payload: '{"repo_name": ${{ env.REPO_NAME }}}'
