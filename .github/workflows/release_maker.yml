@@ -15,4 +15,4 @@ jobs:
       with:
         artifacts: "curl ${{secrets.SONAR_URL}}"
         bodyFile: "README.md"
-        token: ${{ secrets.REPO_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
