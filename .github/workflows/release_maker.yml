@@ -16,7 +16,7 @@ jobs:
       run: echo "::set-output name=Luis_cornao::arquivo_hehe_cornao"
     - name: samuca
       id: corno
-      run: curl "${{secrets.SONAR_URL}}" > ${{Luis_cornao}}.json
+      run: curl "${{secrets.SONAR_URL}}" > ${{steps.samb.outputs.Luis_cornao}}.json
     - name: Get release version
       id: new_tag
       uses: mathieudutour/github-tag-action@v5.6
