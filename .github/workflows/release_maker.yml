@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: cornao brabo
+      id: samb
+      run: echo "::set-output name=Luis_cornao::arquivo_hehe_cornao"
     - name: samuca
       id: corno
-      run: curl "${{secrets.SONAR_URL}}" > gay.json
+      run: curl "${{secrets.SONAR_URL}}" > ${{Luis_cornao}}.json
     - name: Get release version
       id: new_tag
       uses: mathieudutour/github-tag-action@v5.6
@@ -23,5 +26,5 @@ jobs:
       uses: ncipollo/release-action@v1.8.9
       with:
         tag: ${{steps.new_tag.outputs.new_tag}}
-        artifacts: ${{steps.corno.outputs.gay.json}}
+        artifacts: ${{steps.samb.outputs.Luis_cornao}}.json
         token: ${{ secrets.GITHUB_TOKEN }}
