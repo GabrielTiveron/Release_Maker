@@ -6,7 +6,7 @@ jobs:
   receiver:
     runs-on: ubuntu-latest
     env:
-      REPO_NAME: GabrielTiveron/Release_Maker
+      REPO_NAME: Frontend
     steps:
       - uses: guilouro/multiple-repositories-dispatch@v1.0.0
         with:
